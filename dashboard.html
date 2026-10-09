@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="logo"><span class="logo-mark" id="logoMark"></span><span id="siteName"></span></a>
+    <button class="btn btn-small" id="logoutBtn" type="button">Log out</button>
+  </header>
+
+  <main class="container section">
+    <h1 id="greeting">Loading...</h1>
+    <p id="roleLine"></p>
+    <p class="small-note">This is a temporary page. Your real dashboard comes in later phases.</p>
+  </main>
+
+  <script type="module">
+    import { supabase } from "./js/supabase-client.js";
+    import { SITE } from "./js/site-config.js";
+
+    const $ = (id) => document.getElementById(id);
+    $("siteName").textContent = SITE.name;
+    $("logoMark").textContent = SITE.name.charAt(0);
+
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      window.location.href = "account.html";
+    } else {
+      // The database decides what this person may read, not this page.
+      const { data, error } = await supabase
+        .from("profiles").select("display_name, role").single();
+      if (error || !data) {
+        $("greeting").textContent = "Something went wrong loading your account.";
+      } else {
+        $("greeting").textContent = "Welcome, " + (data.display_name || "writer") + "!";
+        $("roleLine").textContent = "Account type: " + data.role;
+      }
+    }
+
+    $("logoutBtn").onclick = async () => {
+      await supabase.auth.signOut();
+      window.location.href = "account.html";
+    };
+  </script>
+</body>
+</html>
