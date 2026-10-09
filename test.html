@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connection test</title>
+</head>
+<body style="font-family: sans-serif; padding: 1.5rem">
+  <h1>Connection test</h1>
+  <p id="result">Checking...</p>
+  <script type="module">
+    import { SUPABASE_URL, SUPABASE_PUBLIC_KEY } from "./js/supabase-config.js";
+    const out = document.getElementById("result");
+    try {
+      const res = await fetch(SUPABASE_URL + "/auth/v1/health", {
+        headers: { apikey: SUPABASE_PUBLIC_KEY },
+      });
+      out.textContent = res.ok
+        ? "Connected to Supabase."
+        : "Reached Supabase but it said: " + res.status;
+    } catch (err) {
+      out.textContent = "Could not connect: " + err.message;
+    }
+  </script>
+</body>
+</html>
