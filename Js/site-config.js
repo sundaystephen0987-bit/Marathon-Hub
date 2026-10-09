@@ -34,7 +34,7 @@ export const SITE = {
   ],
   // Put image file paths here later, e.g. "images/hero.jpg". Empty = placeholder shown.
   images: { hero: "", gallery: ["", "", ""] },
-  contact: { email: "", whatsapp: "" },
+  contact: { email: "authoressrasp@gmail.com", whatsapp: "" },
   // Future shop (Phase 12). Keep false for now; nothing is sold yet.
   shopEnabled: false,
 };
