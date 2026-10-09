@@ -1,0 +1,4 @@
+// These two values are PUBLIC and safe in website code.
+// NEVER put the secret / service_role key here.
+export const SUPABASE_URL = "https://acavwytjjxskzmcjjytl.supabase.co";
+export const SUPABASE_PUBLIC_KEY = "sb_publishable_PXYWvWaepR35WoQKrr0Krg_9_w_GFvb";
