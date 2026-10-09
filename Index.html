@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marathon Hub</title>
+  <meta name="description" content="A welcoming writing community." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="#top" class="logo"><span class="logo-mark" id="logoMark"></span><span id="siteName"></span></a>
+    <a class="btn btn-small" id="registerBtnTop" href="#registration">Register</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1 id="heroTitle"></h1>
+          <p class="lead" id="welcome"></p>
+          <a class="btn" id="registerBtn" href="#registration">Join the Marathon</a>
+        </div>
+        <div class="img-slot" id="heroImage"></div>
+      </div>
+    </section>
+
+    <section class="container section reveal">
+      <h2>Who can join?</h2>
+      <ul class="cards" id="who"></ul>
+    </section>
+
+    <section class="container section reveal">
+      <h2>Announcements</h2>
+      <div class="stack" id="announcements"></div>
+    </section>
+
+    <section class="container section reveal">
+      <h2>Why take part?</h2>
+      <ul class="checks" id="benefits"></ul>
+    </section>
+
+    <section class="container section reveal">
+      <h2>Writing resources</h2>
+      <ul class="cards" id="resources"></ul>
+    </section>
+
+    <section class="container section reveal" id="gallerySection">
+      <h2>Our community</h2>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="container section reveal" id="registration">
+      <div class="notice">
+        <h2>Registration</h2>
+        <p id="registrationText"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p id="footerName"></p>
+      <p id="contact"></p>
+      <p class="small">Privacy: a full privacy notice will be published before registration opens. We will only collect the information needed to run the marathon.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+    </html>
