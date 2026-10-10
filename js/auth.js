@@ -60,3 +60,4 @@ $("signupForm").addEventListener("submit", (e) => {
     else show("Account created. Please check your email to confirm it.", false);
   });
 });
+    
